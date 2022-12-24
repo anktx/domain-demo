@@ -1,0 +1,14 @@
+# Magic behaviour with __get, __set, __call and __callStatic is not exactly static analyser-friendly :)
+# Fortunately, You can ignore it by the following config.
+#
+# vendor/bin/phpstan analyse app --memory-limit 200M -l 0
+#
+parameters:
+  level: 6
+  paths:
+    - src
+    - tests
+  ignoreErrors:
+    - '#jsonSerialize\(\) return type has no value type specified in iterable type array#'
+    - '#SensorList::getLock\(\) should return#'
+    - '#Method tests[a-zA-Z0-9\\:]+\(\) has no return type specified#'
